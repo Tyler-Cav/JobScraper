@@ -1,20 +1,21 @@
 import requests
-from bs4 import BeautifulSoup
+import smtplib
 
-URL = "https://realpython.github.io/fake-jobs/"
-page = requests.get(URL)
+URL = "https://boards-api.greenhouse.io/v1/boards/listrak/departments"
+response = requests.get(URL)
 
-soup = BeautifulSoup(page.content, "html.parser")
-results = soup.find(id="ResultsContainer")
-jobElements = results.find_all('div', class_="card-content")
+data = response.json()
 
-for jobElement in jobElements:
-    title_element = jobElement.find("h2", class_="title")
-    company_element = jobElement.find("h3", class_="company")
-    location_element = jobElement.find("p", class_="location")
-    print('Title: ' + title_element.text)
-    print('Company: ' + company_element.text)
-    print('Location: ' + location_element.text.strip())
-    print()
-    print('------------')
-    print()
+departments = data.get('departments', [])
+
+def productJobs(jobs):
+    for job in jobs:
+        print()
+        print(job['title'])
+        print(job['absolute_url'])
+        print()
+        print('---')
+for department in departments:
+    if department['id'] == 17858:
+        productJobs(department['jobs'])
+    
