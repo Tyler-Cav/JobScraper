@@ -1,7 +1,11 @@
+import os
 import requests
 import smtplib
+from dotenv import load_dotenv, dotenv_values
+load_dotenv()
 
-URL = "https://boards-api.greenhouse.io/v1/boards/listrak/departments"
+URL = os.getenv('MY_SECRET_URL')
+
 response = requests.get(URL)
 
 data = response.json()
@@ -15,7 +19,10 @@ def productJobs(jobs):
         print(job['absolute_url'])
         print()
         print('---')
+        
 for department in departments:
     if department['id'] == 17858:
         productJobs(department['jobs'])
-    
+
+
+print(os.getenv('MY_SECRET_NAME'))
