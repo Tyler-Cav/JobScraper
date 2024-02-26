@@ -1,2 +1,3 @@
-# JobScraper
-Creating a job scraper in Python to automatically notify job opportunities.
+# Listrak Job Scraper
+
+Creating a job scraper in Python using Listrak job API to notify job opportunities.
