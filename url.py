@@ -21,6 +21,9 @@ departments = data.get('departments', [])
 # Creating a callback loop function for the list of jobs under the product department. Then placing the jobs in an object and returning that object as a string.
 def productJobs(jobs):
     currentJobs = {}
+    if (len(jobs) == 0):
+        print("No current Product Department Jobs.")
+        return "No current Product Department Jobs."
     for job in jobs:
         currentJobs[(job['title'])] = (job['absolute_url'])
     print(currentJobs)
