@@ -1,6 +1,10 @@
 # Listrak Job Scraper
 
-Creating a job scraper in Python using Listrak job API to notify job opportunities.
+### A job scraper in Python using Listrak job API to notify job opportunities.
+
+  - Manipulates Listraks public API by using Pythons "Requests" dependency to find job opportunities under their Product department.
+  - Uses SMTP to send out an email from a designated sender and receiver. 
+  
 
 ## How to run
 * This won't work without you inside the python env.
